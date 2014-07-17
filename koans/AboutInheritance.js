@@ -21,7 +21,7 @@ SwedishChef.prototype = new Muppet();
 describe("About inheritance", function() {
   beforeEach(function(){
     this.muppet = new Muppet(2, "coding");
-	this.swedishChef = new SwedishChef(2, "cooking", "chillin");
+	  this.swedishChef = new SwedishChef(2, "cooking", "chillin");
   });
 
   it("should be able to call a method on the derived object", function() {
@@ -41,6 +41,15 @@ describe("About inheritance", function() {
     expect(this.swedishChef.mood).toEqual("chillin");
   });
 });
+
+//// Watch Me Code - Crockford
+if (!Object.create || !typeof Object.create === "function") {
+  Object.create = function(obj){
+    var F = function(){}
+    F.prototype = this;
+    return new F();
+  }
+}
 
 // http://javascript.crockford.com/prototypal.html
 Object.prototype.beget = function () {
